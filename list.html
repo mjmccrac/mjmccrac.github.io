@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>MY ITEMS</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-sm-push-2">
+        <h1 class="text-center">Ethereum Store - My Items</h1>
+        <hr>
+        <strong>Address</strong>: <span id="userAddress">0x0000000000000000000000000000000000000000</span><br />
+        <strong>Balance (eth)</strong>: <span id="userBalance">0</span><br />
+        <strong>Permissions</strong>: <span id="permissions"> Error: Not connected to Ethereum network </span><br>
+        <button class="btn btn-link" onclick="window.location.href = 'index.html';">Return to main store</button>
+        <hr />
+        <br />
+
+        <div id="userControls" class="row">
+          <div class="col-sm">
+            <div id="Purchased Items" class="row">
+              <strong>My Purchases</strong>
+            </div>
+
+            <div id="buyItems2" class="row">
+
+              <strong>(confirm when received)</strong>
+              <div id="listBuyItems2" class="row"> </div>
+            </div>
+            <div id="buyItems" class="row">
+              <strong>(no action required)</strong>
+            </div>
+            <div id="listBuyItems" class="row"></div>
+
+          </div>
+
+          <div class="col-sm">
+            <div id="saleItems1" class="row">
+              <strong>My Sales<br>
+                (action Required)</strong>
+              <div id="listSaleItems1" class="row">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm">
+            <div id="saleItems2" class="row">
+              <strong>My Sales<br>
+                (no action required)</strong>
+              <div id="listSaleItems2" class="row">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm">
+            <div id="saleItems3" class="row">
+              <strong>Active<br>
+                (for sale by me)</strong>
+              <div id="listSaleItems3" class="row">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="listTemplate" style="display: none;">
+
+      <div>
+        <button class="btn btn-primary btn-view" type="button" data-id="0">View</button>
+        <strong>Name:</strong> <span class="item-name">itemname</span>
+        <!--br/-->
+        <strong> ,Tx: </strong><span class="item-tx">N/A</span>
+      </div>
+
+    </div>
+    <div id="listTemplate2" style="display: none;">
+      <div>
+        <button class="btn btn-primary btn-view" type="button" data-id="0">View</button>
+        <font color="grey"><strong>Name:</strong> <span class="item-name">itemname</span>
+          <strong> ,Tx: </strong><span class="item-tx">N/A</span></font>
+      </div>
+
+    </div>
+
+    <div id="listTemplate3" style="display: none;">
+      <div>
+        <button class="btn btn-primary btn-forsale" type="button" data-id="0">View</button>
+        <strong>Name:</strong> <span class="item-name">itemname</span>
+        <strong> ,Tx: </strong><span class="item-tx">N/A</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/web3.min.js"></script>
+  <script src="js/truffle-contract.js"></script>
+  <!--script src ="js/ipfs.js" type = "module"></script-->
+  <script src="https://unpkg.com/ipfs/dist/index.min.js"></script>
+  <script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js"></script>
+  <!--script src="https://unpkg.com/ipfs/dist/index.min.js"></script-->
+  <script src="js/list.js"></script>
+
+  <div id=test2> </div>
+</body>
+
+</html>

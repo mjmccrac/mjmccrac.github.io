@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ethereum Store</title>
+  <!-- Bootstrap -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-sm-push-2">
+        <h1 class="text-center">Ethereum Store - Edit Item</h1>
+        <hr>
+
+        <strong>Address</strong>: <span id="userAddress">0x0000000000000000000000000000000000000000</span><br />
+        <strong>Balance (eth)</strong>: <span id="userBalance">0</span><br />
+        <strong>Permissions</strong>: <span id="permissions"> Error: Not connected to Ethereum network </span><br />
+        <button class="btn btn-link" onclick="window.location.href = 'index.html';">Return to main store</button>
+
+        <hr>
+
+
+        <div id="userControls" class="row">
+
+          <div class>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="1_add_pic">Edit product picture</span>
+              </div>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="itemPhoto">
+                <label class="custom-file-label" for="itemPhoto">Choose file</label>
+              </div>
+            </div>
+            <input type="image" src="placeholder.jpg" alt="No picture selected" style="width:304px;height:228px;" id="design_display" class="border border-primary">
+            <br><br>
+          </div>
+
+          <div class="input-group mb-3" id="1_picHash">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Image hash: </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Image hash" aria-label="Image-hash" aria-describedby="1_picHash" id="picHash">
+          </div>
+
+
+          <div class="input-group mb-3" id="3_add_price">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Change the price (Eth)?: </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Price to include shipping cost" aria-label="Price" aria-describedby="basic-addon1" id="item_price">
+          </div>
+
+
+
+          <div class="input-group mb-3" id="4_sale_quantity">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon2">Change quantity for sale? </span>
+            </div>
+            <input type="text" class="form-control" placeholder="" aria-label="Quantity" aria-describedby="basic-addon2" id="item_quantity">
+          </div>
+
+
+          <div class="input-group mb-3" id="5_name">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Rename product? </span>
+            </div>
+            <input type="text" class="form-control" placeholder="" aria-label="Name" aria-describedby="basic-addon3" id="item_name">
+          </div>
+
+
+          <div class="input-group mb-3" id="6_keyword">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon4">Change search category? </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Enter a single key-word for search:" aria-label="Keyword" aria-describedby="basic-addon4" id="item_keywords">
+          </div>
+
+
+          <div class="input-group mb-3" id="6b_shipping">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon5">To what region will you ship this product: </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Enter city or province or country or continent for location search" aria-label="Shipping" aria-describedby="basic-addon5" id="item_shipping">
+          </div>
+
+          <div id="6_complete">
+            <button id="btn-finalize" type="button" class="btn btn-success"> Finalize Posting</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/web3.min.js"></script>
+  <script src="js/truffle-contract.js"></script>
+  <script src="https://unpkg.com/ipfs/dist/index.min.js"></script>
+  <script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js"></script>
+  <script src="js/editApp.js"></script>
+  <!--div id=test2> test </div-->
+</body>
+
+</html>

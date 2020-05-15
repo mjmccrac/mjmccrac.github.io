@@ -1,0 +1,212 @@
+<!--/**
+* Transaction.html
+* Show image and hash of item
+* Item price, status, name, category
+* Show buyer: address, shipping address, email address
+* Show seller: address, email address
+* Buyer Options: Rate Seller, Acknowledge Receipt
+* Seller Options: Acknowledge Sent
+*/-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ethereum Store</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-sm-push-2">
+        <h1 class="text-center">Ethereum Store - Transaction</h1>
+        <hr>
+
+
+        <strong>Address</strong>: <span id="userAddress">0x0000000000000000000000000000000000000000</span><br />
+        <strong>Balance (eth)</strong>: <span id="userBalance">0</span><br />
+        <strong>Permissions</strong>: <span id="permissions"> Error: Not connected to Ethereum network </span><br>
+        <button class="btn btn-link" onclick="window.location.href = 'index.html';">Return to main store</button>
+        <hr>
+
+        <div id="userControls" class="row">
+
+          <div class="col-sm">
+            <div class="panel-heading">
+              <strong>Product Information</strong>
+              <hr>
+            </div>
+
+            <form>
+              <fieldset disabled>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="1_add_pic">Image hash: </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Image hash not loaded. No image hash." aria-label="Pic" aria-describedby="1_add_pic" id="_add_pic">
+                </div>
+                <input type="image" src="placeholder.jpg" alt="Item image not loaded" style="width:50%" id="design_display">
+                <br>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="1_price">Price (Eth): </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Error! Price not loaded." aria-label="Price" aria-describedby="1_price" id="_price">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="1_name">Product name: </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Error! Name not loaded." aria-label="Name" aria-describedby="1_name" id="_name">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="1_keyword">Category: </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Error! Category not loaded." aria-label="Cat" aria-describedby="1_keyword" id="_keyword">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="1_location">Location: </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="No shipping limitations specified." aria-label="Loc" aria-describedby="1_location" id="_location">
+                </div>
+
+
+                <hr>
+                <strong> Transaction Information </strong>
+                <hr>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="_TX_Status">Transaction status: </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Error! TX status not loaded." aria-label="Status" aria-describedby="_TX_Status" id="_Status">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="_TX_Info">Transaction number: </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Error! TX number not loaded." aria-label="TXnum" aria-describedby="_TX_Info" id="_Transaction">
+                </div>
+
+                <!--/div-->
+              </fieldset>
+            </form>
+          </div>
+          <!----------------------------------------------------------------------->
+          <hr>
+          <div class="col-sm">
+            <strong> Seller Information </strong>
+            <hr>
+
+            <form>
+              <fieldset disabled>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="1_Seller">Seller address: </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Error! Address not loaded." aria-label="Seller" aria-describedby="1_Seller" id="_Seller">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="1SellerRating">Seller Rating: </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Error! Rating not loaded." aria-label="_SellerRating" aria-describedby="1SellerRating" id="_SellerRating">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="1SellerReviews">Based on number of reviews: </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Error! Not loaded." aria-label="_SellerReviews" aria-describedby="1SellerReviews" id="_SellerReviews">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="1SellerJoin">Has been a seller since: </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Error! Not loaded." aria-label="_JoinDate" aria-describedby="1SellerJoin" id="_JoinDate">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="1TotalSales">Total number of items sold: </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Error! Not loaded." aria-label="_NumSales" aria-describedby="1TotalSales" id="_NumSales">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="1SellerEmail">Email address: </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Error! Not loaded." aria-label="_sellerEmail" aria-describedby="1SellerEmail" id="_SellEmail">
+                </div>
+
+
+              </fieldset>
+            </form>
+
+            <div id="1_Confirm">
+              <button id="btn-confirm" type="button" class="btn btn-success">Confirm Sent</button>
+            </div>
+
+            <div id="1_Refresh">
+              <button id="btn-refresh" type="button" class="btn btn-secondary" onclick="document.getElementById('itemPhoto').click();"> Re-upload Image</button>
+              <input type="file" style="display:none" id="itemPhoto" name="itemPhoto">
+            </div>
+
+            <!----------------------------------------------------------------------->
+            <hr>
+
+
+            <strong> Buyer Information </strong>
+            <hr>
+            <form>
+              <fieldset disabled>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="2_Buyer">Buyer address: </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Error! Not loaded." aria-label="_buyer" aria-describedby="2_Buyer" id="_Buyer">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="2_BuyerEmail">Buyer email: </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Error! Not loaded." aria-label="_buyerEmail" aria-describedby="2_BuyerEmail" id="_BuyerEmail">
+                </div>
+
+              </fieldset>
+            </form>
+            <div id="2_Rate">
+              <button id="btn-rate" type="button" class="btn btn-secondary">Rate Seller</button>
+            </div>
+
+            <div id="2_Receive">
+              <button id="btn-receive" type="button" class="btn btn-success">Confirm Receipt</button>
+            </div>
+
+            <!----------------------------------------------------------------------->
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="https://unpkg.com/ipfs/dist/index.min.js"></script>
+    <script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js"></script>
+    <script src="js/transaction.js"></script>
+    <!--div id=test2> test </div-->
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+Solidity File
+[ ]- REMOVE ALL AUCTION FUNCTIONALITY --> SIMPLIFY TO JUST A STORE
+[X]- Array or Hashmap for items currently for sale, so "sold out" items do not display
+[X]- List a quantity of things you are selling
+[X]  - Update quantity for sale each time one is Sold
+[X]  - Should be able to query quantity for sale
+[X] - function QueryBasicData (ipfs hash, name, price) --> for thumbnails on generic buy screen
+[ ]- User must have delivery address // public on chain???
+[ ]- Email Address for user (both buyer and seller) // want public???
+[ ]  - Option for general area (so can arrange via whisper)
+[A]- Auctions get to have a non-zero starting price - test what happens at end of auction
+[ ]- Everyone has to withdraw their eth (purchases as well as auctions) - no direct transfers
+[ ]- Edit a product for sale / auction
+[X]- Index lists by category for searching
+[ ]- If seller rating < 3, refund seller money and remove items from sale.
+[ ]- Free up storage when deleting anything
+[ ]- let user search by vendor
+[ ]- Switch 0 and 1 as isSeller, so everyone can sell by default
+[A]- If I bid in item, then someone else wins and auction closes, I should still see in my history even though no longer in itemsForSale
+[ ]- Simplify to reduce gas. Revert to one list of products. Client side to deal with searching for available items
+[A]- NO Starting Bid - allows someone to submit a bid > 0, but < starting bid
+
+
+App.js
+[ ] - Display messages posted on chain from eth address for admin
+[ ]- REMOVE ALL AUCTION FUNCTIONALITY --> SIMPLIFY TO JUST A STORE
+[ ]- Implement rating system.
+[X]  - Each buyer can rate the seller once per purchase after transaction goes through
+[X]  - Can come back later and modify their comment
+[ ]- Seller can update their product photo and select data
+[X]- Seller can view THEIR products (sold and for sale)
+[ ]- Whisper chat available (SEE example from Mastering Ethereum)
+[ ]  - Need some way for each party to check that other is online
+[ ]  - key = seller address | buyer address
+[ ] - Alert if no web3 present - say to install MetaMask
+[A] - Auction buy - display error if bid invalid (too low, NAN, etc)
+
+
+HTML
+[X]- Multiple pages or screens
+[X]  - Look at peer rev project for how to implement
+[X]- Default screen is shop
+[X]  - Back up existing
+[X]  - Remove seller and admin controls
+[X]  - Search by keyword
+[X]    - If no products "Nothing in this category for sale yet"
+[X]    - Display at least 8 results
+[ ]    - Cycle through pages
+[ ]   - Before search, display newest things for sale in 1 row
+[ ]    - Display best sellers in second row
+[ ]   Implement ENS
+[X]- Separate screen for posting item for sale or auction
+[ ]  - disable each section so you have to fill them out in order, starting with optional picture
+[ ]  - have to list shipping cost for each "region" - or include in price & list region you ship to
+[X]- Screen to list all existing sales & purchases for user (pending & complete), plus rating
+[X]- Screen to view all of seller's info
+[X]- Screen for single item. If purchased, edit status. Spot for customer review. Show all data for item and for the seller (rating, num sales, etc.)
+[X]- Force keyword and name inputs to be lower case to prevent confusion
+[A]- Buy screen - change wording depending if auction or sale, remove bid field
+[ ] - there is an extra picture box on sell screen
+
+Done:
+[X] Transaction page: show seler email
+[X] Index page: fix Register as Seller
+[X] Sign up to be seller
+
+Priorities:
+[ ]- REMOVE ALL AUCTION FUNCTIONALITY --> SIMPLIFY TO JUST A STORE
+[X] Buyer and seller emails - mandatory
+[X] buy page: show seller email
+[ ] Keep all within 1 window. Get rid of multiple window scheme
+[ ] add shipping region
+[ ] index: when registering as seller, first check whether email already exists
+[X] buy page: input buyer email / shipping information
+[ ] if already seller, change the "Register as Seller" to "change email"
+[ ] Convert all to withdraw pattern and display balance on site next to balance in account
+[ ] Allow buyer to change rating
+[A] Auction items not yet finished to display in high bidder's list
+[A] Put a Finish Auction button for the high bidder or seller
+[X] Index screen - also switch to calpitals when searching an item
+[ ] Display $ available for withdrawal. Provide button to withdraw - call < withdraw() >
+[ ] No direct eth transfers on purchase - use withdrawal pattern for all
+[A] Maybe allow anyone viewing the auction to close it out - to get it off thier home screen (but nobody will want to spend $ for this...)
+[A] LEFT off - add event listener to endAucBtn in buy screen - call function which calls < auctionEnd (uint itemNumber) >
+
+Errors:
+[X] June 17 2019 - When selling item in auction, got "Error invalid quantity - enter number between 1 and ..."
+[ ] Allows me to bid below the current high bid
+[A] Auction bid still proceeds if buyer clicks cancel
+[X] Auction - price does not go up with bids - stays at initial level on buy screen
+[X] Buy button does not change to submit bid if auction
+[A] Auction item displays on index page when time is expired
+[A] Auction item shows -ve time on buy page - replace with "Auction Closed" and Close Auction button for high bidder / seller
+[A] When auction is finished, disable Buy button
+[X] if a sale item does not have an IPFS hash, we get "Error not valid multihash" when loading item on main screen - have a catch here - display the default pic
+[ ] Cannot test offline because HTML loading requires websites for ipfs
+[X] Buy screen broken - July 16 2019
